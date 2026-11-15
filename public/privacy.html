@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy policy — AZIDAN EXCHANGE</title>
+  <meta name="description" content="How AZIDAN EXCHANGE collects, uses and protects your personal information, trade details and gift card codes." />
+  <meta name="theme-color" content="#070b12" />
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+</head>
+<body>
+  <!-- @include:header -->
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span>Privacy policy</span></nav>
+        <h1 class="h1">Privacy policy</h1>
+        <p>What we collect, why we need it, and how we protect it while you trade on AZIDAN EXCHANGE.</p>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="legal-layout">
+        <nav class="legal-nav" aria-label="On this page">
+          <a href="#collect">What we collect</a>
+          <a href="#use">How we use it</a>
+          <a href="#cards">Gift card data</a>
+          <a href="#cookies">Cookies</a>
+          <a href="#sharing">Sharing</a>
+          <a href="#retention">Retention</a>
+          <a href="#rights">Your rights</a>
+          <a href="#security">Security</a>
+        </nav>
+
+        <article class="prose">
+          <p class="legal-meta">Last updated: {{year}}</p>
+
+          <h2 id="collect">1. What we collect</h2>
+          <ul>
+            <li><strong>Account details:</strong> name, email address, phone number and password (stored as a one-way hash).</li>
+            <li><strong>Trade details:</strong> assets sold, amounts, rates, payout bank or wallet details, transaction hashes and refund addresses.</li>
+            <li><strong>Gift card details:</strong> card type, region, value, an encrypted card code, and any image you upload for verification.</li>
+            <li><strong>Technical data:</strong> IP address in server logs, session cookie, and requests needed to keep the service secure.</li>
+          </ul>
+
+          <h2 id="use">2. How we use it</h2>
+          <p>We use your information to create and manage your account, verify and pay out trades, respond to support requests, prevent fraud, and meet legal obligations. We also send in-app notifications about your trades; we do not sell your personal information.</p>
+
+          <h2 id="cards">3. Gift card data</h2>
+          <p>Gift card codes are encrypted before they are written to our database. Only the trade officer processing your card can decrypt a code, and that access is recorded in our audit log. Card codes are never displayed in public pages, and only a masked last-four fragment is shown to you after submission.</p>
+
+          <h2 id="cookies">4. Cookies</h2>
+          <p>We use a single required session cookie to keep you signed in. It is HttpOnly, SameSite=Lax, and expires after the session period. We do not use advertising cookies or third-party trackers.</p>
+
+          <h2 id="sharing">5. Sharing</h2>
+          <p>We share information with our banks and payment providers only as needed to pay you, and with authorities where we are legally required to do so. We do not sell or rent your data to anyone.</p>
+
+          <h2 id="retention">6. Retention</h2>
+          <p>Trade and payout records are kept for as long as needed to support your account, resolve disputes, and meet record-keeping requirements. Uploaded images are stored on our server and are available only to you and our trade officers.</p>
+
+          <h2 id="rights">7. Your rights</h2>
+          <p>Under the Nigeria Data Protection Act you may request access to, correction of, or deletion of your personal information, subject to legal record-keeping requirements. Contact us using the details below to make a request.</p>
+
+          <h2 id="security">8. Security</h2>
+          <p>Passwords are hashed with scrypt, sessions are stored as hashes, sensitive card data is encrypted with AES-256-GCM, and access to trade data is restricted to the account owner and authorised administrators. If you believe your account is compromised, change your password immediately and contact support.</p>
+
+          <p style="margin-top:26px">Questions about this policy: <a href="mailto:{{support_email}}">{{support_email}}</a> · {{support_phone}} · {{support_hours}}.</p>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <!-- @include:footer -->
+  <!-- @include:whatsapp -->
+
+  <script type="module" src="/assets/js/nav.js"></script>
+</body>
+</html>

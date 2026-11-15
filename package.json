@@ -1,0 +1,19 @@
+{
+  "name": "azidan-exchange",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AZIDAN EXCHANGE - crypto and gift card trading platform for Nigeria",
+  "type": "module",
+  "engines": {
+    "node": ">=22.9.0"
+  },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env server/index.js",
+    "dev": "node --env-file-if-exists=.env --watch server/index.js",
+    "seed": "node --env-file-if-exists=.env server/seed.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "multer": "^2.0.2"
+  }
+}

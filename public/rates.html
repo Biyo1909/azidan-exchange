@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Today's crypto &amp; gift card rates — AZIDAN EXCHANGE</title>
+  <meta name="description" content="See today's buying rates for USDT, Bitcoin, Ethereum, Apple gift cards, Amazon gift cards and more. Calculate your Naira payout instantly." />
+  <meta name="theme-color" content="#070b12" />
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+</head>
+<body>
+  <!-- @include:header -->
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span>Live rates</span></nav>
+        <h1 class="h1">Today's buying rates</h1>
+        <p>Every rate AZIDAN EXCHANGE is paying right now. Choose an asset, calculate your payout, and start a trade in minutes.</p>
+        <p class="small muted" style="margin-top:12px"><span class="live-dot" style="display:inline-block;margin-right:8px"></span>Updated <span id="ratesUpdated">today</span> · rates are reviewed daily</p>
+      </div>
+    </section>
+
+    <div class="container" style="padding-bottom:70px">
+      <div class="rates-shell">
+        <div class="card rates-column">
+          <div class="rates-toolbar">
+            <div class="segmented" role="tablist" aria-label="Rate type">
+              <button class="seg-btn active" type="button" data-rates-tab="all" role="tab" aria-selected="true">All</button>
+              <button class="seg-btn" type="button" data-rates-tab="crypto" role="tab" aria-selected="false">Crypto</button>
+              <button class="seg-btn" type="button" data-rates-tab="giftcard" role="tab" aria-selected="false">Gift cards</button>
+            </div>
+            <div class="search-box" style="flex:1;min-width:180px">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+              <input class="input" id="rateSearch" type="search" placeholder="Search asset, e.g. Apple" aria-label="Search rates" />
+            </div>
+            <select class="select" id="rateCurrency" aria-label="Filter gift cards by currency" style="max-width:150px">
+              <option value="">All currencies</option>
+            </select>
+          </div>
+          <div class="rate-count" id="rateCount">Loading rates…</div>
+          <div class="rate-list-block" id="rateList">
+            <div class="sk-row skeleton"></div>
+            <div class="sk-row skeleton"></div>
+            <div class="sk-row skeleton"></div>
+            <div class="sk-row skeleton"></div>
+            <div class="sk-row skeleton"></div>
+          </div>
+        </div>
+
+        <aside class="rates-side">
+          <!-- @include:calculator -->
+          <div class="side-note">
+            <h4>How to read these rates</h4>
+            <p>The rate is what we pay you per unit — per coin for crypto, per 1 unit of card currency for gift cards.</p>
+            <ul>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Volume tiers unlock better rates on larger trades.</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Rates are confirmed and locked when your trade is verified.</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Minimum and maximum limits are shown for each asset.</li>
+            </ul>
+          </div>
+          <div class="side-note">
+            <h4>Card we don't list?</h4>
+            <p>We may still be able to buy it. Send a photo of the card and its value on WhatsApp for a quote.</p>
+            <a class="btn btn-ghost btn-sm" style="margin-top:12px" href="https://wa.me/{{whatsapp}}?text={{whatsapp_text}}" target="_blank" rel="noopener">Request a quote</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <section class="section-tight">
+      <div class="container">
+        <div class="cta-band">
+          <div>
+            <h2>Found your rate? Lock it in.</h2>
+            <p>Submit your trade now and our desk will confirm it, usually within minutes.</p>
+          </div>
+          <div class="cta-actions">
+            <a class="btn btn-primary btn-lg" href="/sell">Start a trade</a>
+            <a class="btn btn-ghost btn-lg" href="/how-it-works">How it works</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- @include:footer -->
+  <!-- @include:whatsapp -->
+
+  <script type="module" src="/assets/js/nav.js"></script>
+  <script type="module" src="/assets/js/calculator.js"></script>
+  <script type="module" src="/assets/js/rates.js"></script>
+</body>
+</html>

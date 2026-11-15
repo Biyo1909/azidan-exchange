@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Create your account — AZIDAN EXCHANGE</title>
+  <meta name="description" content="Create a free AZIDAN EXCHANGE account to sell crypto and gift cards for Naira." />
+  <meta name="theme-color" content="#070b12" />
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+</head>
+<body>
+  <!-- @include:header -->
+  <main id="main" class="auth-shell">
+    <!-- @include:auth-aside -->
+    <div class="auth-main">
+      <div class="auth-card">
+        <div class="auth-head">
+          <h1>Create your account</h1>
+          <p>Free to join. Takes less than a minute.</p>
+        </div>
+        <div class="card">
+          <form class="auth-form" id="registerForm" novalidate>
+            <div class="form-error" id="authError" role="alert"></div>
+            <div class="field">
+              <label class="label" for="regName">Full name</label>
+              <input class="input" id="regName" type="text" name="full_name" autocomplete="name" placeholder="e.g. Adaeze Okafor" required />
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label class="label" for="regEmail">Email address</label>
+                <input class="input" id="regEmail" type="email" name="email" autocomplete="email" placeholder="you@example.com" required />
+              </div>
+              <div class="field">
+                <label class="label" for="regPhone">Phone number</label>
+                <input class="input" id="regPhone" type="tel" name="phone" autocomplete="tel" placeholder="08012345678" required />
+              </div>
+            </div>
+            <div class="field">
+              <label class="label" for="regPassword">Password</label>
+              <div class="pass-wrap">
+                <input class="input" id="regPassword" type="password" name="password" autocomplete="new-password" placeholder="At least 8 characters" required />
+                <button class="pass-toggle" type="button" data-pass-toggle="regPassword" aria-label="Show password">Show</button>
+              </div>
+              <p class="hint">Use at least 8 characters. A mix of letters and numbers is best.</p>
+            </div>
+            <div class="field">
+              <label class="label" for="regConfirm">Confirm password</label>
+              <input class="input" id="regConfirm" type="password" autocomplete="new-password" placeholder="Repeat your password" required />
+            </div>
+            <label class="checkbox">
+              <input type="checkbox" id="regTerms" />
+              <span>I agree to the <a href="/terms" target="_blank" rel="noopener" style="color:var(--brand)">terms of service</a> and <a href="/privacy" target="_blank" rel="noopener" style="color:var(--brand)">privacy policy</a>.</span>
+            </label>
+            <button class="btn btn-primary btn-block" type="submit" id="registerSubmit">Create account</button>
+          </form>
+          <div class="auth-note">We'll only use your details to process trades and keep your account secure. No spam.</div>
+        </div>
+        <p class="auth-foot">Already have an account? <a href="/login">Sign in</a></p>
+      </div>
+    </div>
+  </main>
+  <!-- @include:whatsapp -->
+  <script type="module" src="/assets/js/nav.js"></script>
+  <script type="module" src="/assets/js/auth.js"></script>
+</body>
+</html>

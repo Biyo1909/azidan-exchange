@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin — AZIDAN EXCHANGE</title>
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#070b12" />
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <link rel="stylesheet" href="/assets/css/admin.css" />
+</head>
+<body>
+  <!-- @include:header -->
+
+  <main id="main" class="container">
+    <div class="admin-shell">
+      <aside class="admin-side" aria-label="Admin sections">
+        <div class="as-title">Operations</div>
+        <button class="admin-nav-btn active" type="button" data-view="overview">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>
+          Overview
+        </button>
+        <button class="admin-nav-btn" type="button" data-view="trades">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+          Trades <span class="count" id="navPending" hidden>0</span>
+        </button>
+        <button class="admin-nav-btn" type="button" data-view="assets">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v18M7 7h7a3 3 0 0 1 0 6H7h8a3 3 0 0 1 0 6H7"/></svg>
+          Rates &amp; assets
+        </button>
+        <button class="admin-nav-btn" type="button" data-view="history">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          Rate history
+        </button>
+        <div class="as-title">People</div>
+        <button class="admin-nav-btn" type="button" data-view="users">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M17 5.5a3 3 0 0 1 0 5.8M19 20a5.5 5.5 0 0 0-3-4.9"/></svg>
+          Users
+        </button>
+        <button class="admin-nav-btn" type="button" data-view="messages">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.9 8.9 0 0 1-3.2-.6L3 21l1.7-5.1A8.4 8.4 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5Z"/></svg>
+          Messages <span class="count" id="navMessages" hidden>0</span>
+        </button>
+        <button class="admin-nav-btn" type="button" data-view="announcements">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 10v4l12 5V5L4 10Z"/><path d="M16 8h2a2 2 0 0 1 0 4h-2M6 14v3a2 2 0 0 0 2 2h2"/></svg>
+          Announcements
+        </button>
+        <div class="as-title">System</div>
+        <button class="admin-nav-btn" type="button" data-view="settings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.1-1.2l2-1.5-2-3.4-2.3.9a7 7 0 0 0-2-1.2L14 3h-4l-.6 2.6a7 7 0 0 0-2 1.2l-2.3-.9-2 3.4 2 1.5A7 7 0 0 0 5 12c0 .4 0 .8.1 1.2l-2 1.5 2 3.4 2.3-.9a7 7 0 0 0 2 1.2L10 21h4l.6-2.6a7 7 0 0 0 2-1.2l2.3.9 2-3.4-2-1.5c.1-.4.1-.8.1-1.2Z"/></svg>
+          Settings
+        </button>
+        <button class="admin-nav-btn" type="button" data-view="activity">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 4 6v6c0 4.4 3.4 7.7 8 9 4.6-1.3 8-4.6 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg>
+          Activity log
+        </button>
+        <a class="admin-nav-btn" href="/" style="margin-top:12px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m15 18-6-6 6-6"/></svg>
+          Back to site
+        </a>
+      </aside>
+
+      <div class="admin-main">
+        <div class="admin-head">
+          <div>
+            <h1 id="adminTitle">Overview</h1>
+            <p id="adminSub">Today's snapshot of AZIDAN EXCHANGE.</p>
+          </div>
+          <div class="admin-head-actions">
+            <span class="live-flag"><span class="live-dot" style="display:inline-block"></span> Live updates</span>
+            <button class="btn btn-ghost btn-sm" type="button" id="adminRefresh">Refresh</button>
+          </div>
+        </div>
+
+        <!-- overview -->
+        <section class="admin-view active" data-view-panel="overview">
+          <div class="admin-cards">
+            <div class="admin-card accent">
+              <div class="ac-label">Paid today <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div>
+              <strong id="ovTodayVolume">₦0</strong>
+              <div class="ac-sub" id="ovTodayTrades">0 trades today</div>
+            </div>
+            <div class="admin-card">
+              <div class="ac-label">This week <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+              <strong id="ovWeekVolume">₦0</strong>
+              <div class="ac-sub" id="ovWeekCount">0 payouts</div>
+            </div>
+            <div class="admin-card">
+              <div class="ac-label">Pending <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 8v5l3 2"/><circle cx="12" cy="12" r="9"/></svg></div>
+              <strong id="ovPending">0</strong>
+              <div class="ac-sub">Awaiting review or payout</div>
+            </div>
+            <div class="admin-card">
+              <div class="ac-label">Customers <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/></svg></div>
+              <strong id="ovUsers">0</strong>
+              <div class="ac-sub" id="ovNewUsers">0 new this week</div>
+            </div>
+            <div class="admin-card">
+              <div class="ac-label">Active assets <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v18M7 7h7a3 3 0 0 1 0 6H7"/></svg></div>
+              <strong id="ovAssets">0</strong>
+              <div class="ac-sub">Live on the rates page</div>
+            </div>
+            <div class="admin-card">
+              <div class="ac-label">New messages <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.9 8.9 0 0 1-3.2-.6L3 21l1.7-5.1A8.4 8.4 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5Z"/></svg></div>
+              <strong id="ovMessages">0</strong>
+              <div class="ac-sub">Unresolved contact requests</div>
+            </div>
+            <div class="admin-card">
+              <div class="ac-label">All-time volume <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 17V7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><path d="M3 10h18"/></svg></div>
+              <strong id="ovAllTime">₦0</strong>
+              <div class="ac-sub" id="ovAllTimeTrades">0 completed trades</div>
+            </div>
+            <div class="admin-card">
+              <div class="ac-label">Rate changes <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 17l6-6 4 4 7-8"/><path d="M14 7h6v6"/></svg></div>
+              <strong id="ovRateChanges">0</strong>
+              <div class="ac-sub" id="ovRatesUpdated">Never updated</div>
+            </div>
+          </div>
+
+          <div class="admin-split">
+            <div class="card card-pad">
+              <div class="card-head">
+                <div>
+                  <div class="card-title">Payout volume — last 14 days</div>
+                  <div class="card-sub" id="chartSummary">No payouts recorded yet</div>
+                </div>
+              </div>
+              <div class="chart" id="volumeChart"></div>
+            </div>
+            <div class="card card-pad">
+              <div class="card-head"><div><div class="card-title">Trade status</div><div class="card-sub">All-time by status</div></div></div>
+              <div id="statusBreakdown"></div>
+            </div>
+          </div>
+
+          <div class="admin-split">
+            <div class="card card-pad">
+              <div class="card-head">
+                <div><div class="card-title">Recent trades</div><div class="card-sub">Latest submissions across all customers</div></div>
+                <button class="btn-link" type="button" data-goto="trades">View all</button>
+              </div>
+              <div class="table-wrap">
+                <table class="data-table">
+                  <thead><tr><th>Reference</th><th>Customer</th><th>Asset</th><th class="num">Payout</th><th>Status</th><th>When</th></tr></thead>
+                  <tbody id="recentRows"><tr><td colspan="6" class="muted">Loading…</td></tr></tbody>
+                </table>
+              </div>
+            </div>
+            <div class="card card-pad">
+              <div class="card-head"><div><div class="card-title">Quick rate update</div><div class="card-sub">Saves instantly and pushes to the site</div></div></div>
+              <div id="quickRates" style="display:grid;gap:10px"><div class="skeleton sk-row"></div><div class="skeleton sk-row"></div><div class="skeleton sk-row"></div></div>
+              <p class="hint" style="margin-top:12px">Last rate update: <span id="ratesUpdated">—</span></p>
+            </div>
+          </div>
+        </section>
+
+        <!-- trades -->
+        <section class="admin-view" data-view-panel="trades">
+          <div class="admin-toolbar">
+            <div class="search-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+              <input class="input" id="tradeSearch" type="search" placeholder="Ref, customer or email" />
+            </div>
+            <select class="select" id="tradeStatus" style="max-width:150px">
+              <option value="">All statuses</option>
+              <option value="pending">Pending</option>
+              <option value="confirmed">Confirmed</option>
+              <option value="paid">Paid</option>
+              <option value="rejected">Rejected</option>
+              <option value="cancelled">Cancelled</option>
+            </select>
+            <select class="select" id="tradeType" style="max-width:140px">
+              <option value="">All types</option>
+              <option value="crypto">Crypto</option>
+              <option value="giftcard">Gift cards</option>
+            </select>
+            <input class="input" id="tradeFrom" type="date" aria-label="From date" style="max-width:150px" />
+            <input class="input" id="tradeTo" type="date" aria-label="To date" style="max-width:150px" />
+            <button class="btn btn-soft btn-sm" type="button" id="tradeApply">Apply</button>
+            <button class="btn btn-ghost btn-sm" type="button" id="tradeClear">Clear</button>
+          </div>
+          <div class="admin-counts" id="tradeCounts"></div>
+          <div class="card card-pad">
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead><tr><th>Reference</th><th>Customer</th><th>Asset</th><th class="num">Payout</th><th>Status</th><th>Submitted</th><th></th></tr></thead>
+                <tbody id="tradeRows"><tr><td colspan="7" class="muted">Loading…</td></tr></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- assets -->
+        <section class="admin-view" data-view-panel="assets">
+          <div class="admin-toolbar">
+            <div class="search-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+              <input class="input" id="assetSearch" type="search" placeholder="Search assets" />
+            </div>
+            <select class="select" id="assetTypeFilter" style="max-width:150px">
+              <option value="">All types</option>
+              <option value="crypto">Crypto</option>
+              <option value="giftcard">Gift cards</option>
+            </select>
+            <button class="btn btn-primary btn-sm" type="button" id="newAssetBtn">+ Add asset</button>
+          </div>
+          <div class="card card-pad">
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead><tr><th>Asset</th><th>Type</th><th class="num">Base rate</th><th class="num">Market</th><th>Limits</th><th>Tiers</th><th>Active</th><th></th></tr></thead>
+                <tbody id="assetRows"><tr><td colspan="8" class="muted">Loading…</td></tr></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- rate history -->
+        <section class="admin-view" data-view-panel="history">
+          <div class="admin-toolbar">
+            <select class="select" id="historyAsset" style="max-width:260px"><option value="">All assets</option></select>
+          </div>
+          <div class="card card-pad">
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead><tr><th>When</th><th>Asset</th><th class="num">Old rate</th><th class="num">New rate</th><th class="num">Market</th><th>Note</th><th>Changed by</th></tr></thead>
+                <tbody id="historyRows"><tr><td colspan="7" class="muted">Loading…</td></tr></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- users -->
+        <section class="admin-view" data-view-panel="users">
+          <div class="admin-toolbar">
+            <div class="search-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+              <input class="input" id="userSearch" type="search" placeholder="Name, email or phone" />
+            </div>
+          </div>
+          <div class="card card-pad">
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead><tr><th>Customer</th><th>Contact</th><th>Role</th><th>Status</th><th class="num">Trades</th><th class="num">Paid</th><th>Joined</th><th></th></tr></thead>
+                <tbody id="userRows"><tr><td colspan="8" class="muted">Loading…</td></tr></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- announcements -->
+        <section class="admin-view" data-view-panel="announcements">
+          <div class="admin-split" style="margin-top:0">
+            <div class="card card-pad">
+              <div class="card-head"><div><div class="card-title">Banner announcements</div><div class="card-sub">Shown at the top of the public site</div></div></div>
+              <div class="announcement-list" id="announcementList"></div>
+            </div>
+            <div class="card card-pad">
+              <div class="card-head"><div><div class="card-title">New announcement</div><div class="card-sub">Keep it short and useful</div></div></div>
+              <form class="auth-form" id="announcementForm">
+                <div class="field">
+                  <label class="label" for="annMessage">Message</label>
+                  <textarea class="textarea" id="annMessage" maxlength="280" placeholder="e.g. USDT rates updated — check today's rate before you trade." required></textarea>
+                </div>
+                <div class="field-row">
+                  <div class="field">
+                    <label class="label" for="annLevel">Style</label>
+                    <select class="select" id="annLevel">
+                      <option value="info">Info</option>
+                      <option value="success">Success</option>
+                      <option value="warning">Warning</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label class="label" for="annExpires">Expires (optional)</label>
+                    <input class="input" id="annExpires" type="date" />
+                  </div>
+                </div>
+                <div class="form-error" id="annError" role="alert"></div>
+                <button class="btn btn-primary btn-block" type="submit" id="annSubmit">Publish banner</button>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <!-- messages -->
+        <section class="admin-view" data-view-panel="messages">
+          <div class="card card-pad">
+            <div class="card-head"><div><div class="card-title">Contact messages</div><div class="card-sub">Sent from the public contact form</div></div></div>
+            <div id="messageList"></div>
+          </div>
+        </section>
+
+        <!-- settings -->
+        <section class="admin-view" data-view-panel="settings">
+          <div class="admin-split" style="margin-top:0">
+            <div class="card card-pad">
+              <div class="card-head"><div><div class="card-title">Support &amp; payouts</div><div class="card-sub">These values appear across the website</div></div></div>
+              <form class="auth-form" id="settingsForm">
+                <div class="field-row">
+                  <div class="field">
+                    <label class="label" for="setWhatsapp">WhatsApp number</label>
+                    <input class="input" id="setWhatsapp" inputmode="numeric" placeholder="2349046648900" />
+                    <span class="hint">Digits with country code, no plus sign.</span>
+                  </div>
+                  <div class="field">
+                    <label class="label" for="setPhone">Display phone</label>
+                    <input class="input" id="setPhone" placeholder="+234 904 664 8900" />
+                  </div>
+                </div>
+                <div class="field-row">
+                  <div class="field">
+                    <label class="label" for="setEmail">Support email</label>
+                    <input class="input" id="setEmail" type="email" />
+                  </div>
+                  <div class="field">
+                    <label class="label" for="setHours">Support hours</label>
+                    <input class="input" id="setHours" placeholder="Mon–Sat, 8am – 9pm WAT" />
+                  </div>
+                </div>
+                <div class="field">
+                  <label class="label" for="setMethods">Payout methods</label>
+                  <textarea class="textarea" id="setMethods" rows="4" placeholder="One method per line"></textarea>
+                  <span class="hint">One per line. Shown to customers when they create a trade.</span>
+                </div>
+                <div class="field-row">
+                  <div class="field">
+                    <label class="label" for="setMinPayout">Minimum payout (₦)</label>
+                    <input class="input" id="setMinPayout" inputmode="numeric" />
+                  </div>
+                  <div class="field">
+                    <label class="label" for="setCta">Announcement CTA link</label>
+                    <input class="input" id="setCta" placeholder="/rates" />
+                  </div>
+                </div>
+                <div class="field">
+                  <label class="label" for="setRatesNote">Rates note</label>
+                  <input class="input" id="setRatesNote" placeholder="Rates are reviewed daily." />
+                </div>
+                <div class="form-error" id="settingsError" role="alert"></div>
+                <button class="btn btn-primary" type="submit" id="settingsSave">Save settings</button>
+              </form>
+            </div>
+            <div class="side-note">
+              <h4>Operational notes</h4>
+              <p>Changes here update the public site immediately. The WhatsApp number is used by the floating chat button, header, footer and support links.</p>
+              <ul>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Rates are updated from Rates &amp; assets.</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Pending trades are highlighted in the sidebar.</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Gift card codes require a second click to reveal and are logged.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- activity -->
+        <section class="admin-view" data-view-panel="activity">
+          <div class="card card-pad">
+            <div class="card-head"><div><div class="card-title">Activity log</div><div class="card-sub">Who did what, newest first</div></div></div>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead><tr><th>When</th><th>Admin</th><th>Action</th><th>Entity</th><th>Details</th></tr></thead>
+                <tbody id="activityRows"><tr><td colspan="5" class="muted">Loading…</td></tr></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <div class="modal-backdrop" id="tradeModal" role="dialog" aria-modal="true" aria-labelledby="tradeModalTitle">
+    <div class="modal modal-lg">
+      <div class="modal-head">
+        <div>
+          <h3 id="tradeModalTitle">Trade</h3>
+          <div class="card-sub" id="tradeModalSub"></div>
+        </div>
+        <button class="icon-btn" type="button" data-close-modal="tradeModal" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body-scroll" id="tradeDetailBody"></div>
+      <div id="tradeActions"></div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="assetModal" role="dialog" aria-modal="true" aria-labelledby="assetModalTitle">
+    <div class="modal modal-lg">
+      <div class="modal-head">
+        <div>
+          <h3 id="assetModalTitle">Add asset</h3>
+          <div class="card-sub">Rates are per unit: per coin for crypto, per 1 unit for gift cards.</div>
+        </div>
+        <button class="icon-btn" type="button" data-close-modal="assetModal" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body-scroll">
+        <form id="assetForm">
+          <input type="hidden" id="assetId" />
+          <div class="field-row">
+            <div class="field">
+              <label class="label" for="assetType">Type</label>
+              <select class="select" id="assetType">
+                <option value="crypto">Crypto</option>
+                <option value="giftcard">Gift card</option>
+              </select>
+            </div>
+            <div class="field">
+              <label class="label" for="assetName">Name</label>
+              <input class="input" id="assetName" placeholder="e.g. Tether USDT" required />
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label class="label" for="assetSymbol">Symbol / short name</label>
+              <input class="input" id="assetSymbol" placeholder="USDT or Apple" />
+            </div>
+            <div class="field">
+              <label class="label" for="assetCurrency">Currency</label>
+              <input class="input" id="assetCurrency" value="USD" maxlength="3" />
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label class="label" for="assetRate">Buying rate (₦)</label>
+              <input class="input" id="assetRate" inputmode="decimal" required />
+            </div>
+            <div class="field">
+              <label class="label" for="assetMarket">Market / display rate (₦, optional)</label>
+              <input class="input" id="assetMarket" inputmode="decimal" />
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label class="label" for="assetMin">Minimum amount</label>
+              <input class="input" id="assetMin" inputmode="decimal" value="1" />
+            </div>
+            <div class="field">
+              <label class="label" for="assetMax">Maximum amount (optional)</label>
+              <input class="input" id="assetMax" inputmode="decimal" />
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label class="label" for="assetNetwork">Network / region hint</label>
+              <input class="input" id="assetNetwork" placeholder="TRC20 or United States" />
+            </div>
+            <div class="field">
+              <label class="label" for="assetBadge">Badge (optional)</label>
+              <input class="input" id="assetBadge" placeholder="Most traded" maxlength="20" />
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label class="label" for="assetSort">Sort order</label>
+              <input class="input" id="assetSort" type="number" value="0" />
+            </div>
+            <div class="field">
+              <label class="label" for="assetColor">Tile colour</label>
+              <input class="input" id="assetColor" placeholder="#1d5f4c" maxlength="20" />
+            </div>
+          </div>
+          <div class="field">
+            <label class="label" for="assetNote">Note (optional)</label>
+            <input class="input" id="assetNote" placeholder="Short customer-facing note" maxlength="300" />
+          </div>
+          <div class="field">
+            <label class="label">Volume tiers (optional)</label>
+            <div id="tierRows"></div>
+            <button class="btn btn-ghost btn-sm" type="button" id="addTierBtn" style="justify-self:start">+ Add tier</button>
+            <span class="hint">A tier rate applies when the amount reaches its minimum. Leave maximum empty for no upper limit.</span>
+          </div>
+          <label class="check-line" style="margin-top:6px"><input type="checkbox" id="assetActive" checked /> Active and visible on the site</label>
+          <div class="form-error" id="assetError" role="alert"></div>
+        </form>
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-ghost" type="button" data-close-modal="assetModal">Cancel</button>
+        <button class="btn btn-primary" type="button" id="assetSave">Save asset</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- @include:whatsapp -->
+
+  <script type="module" src="/assets/js/nav.js"></script>
+  <script type="module" src="/assets/js/admin.js"></script>
+</body>
+</html>

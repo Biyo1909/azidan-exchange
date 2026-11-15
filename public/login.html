@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sign in — AZIDAN EXCHANGE</title>
+  <meta name="description" content="Sign in to your AZIDAN EXCHANGE account to track trades and manage payouts." />
+  <meta name="theme-color" content="#070b12" />
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+</head>
+<body>
+  <!-- @include:header -->
+  <main id="main" class="auth-shell">
+    <!-- @include:auth-aside -->
+    <div class="auth-main">
+      <div class="auth-card">
+        <div class="auth-head">
+          <h1>Welcome back</h1>
+          <p>Sign in to track your trades and manage payouts.</p>
+        </div>
+        <div class="card">
+          <form class="auth-form" id="loginForm" novalidate>
+            <div class="form-error" id="authError" role="alert"></div>
+            <div class="field">
+              <label class="label" for="loginEmail">Email address</label>
+              <input class="input" id="loginEmail" type="email" name="email" autocomplete="email" placeholder="you@example.com" required />
+            </div>
+            <div class="field">
+              <label class="label" for="loginPassword">Password</label>
+              <div class="pass-wrap">
+                <input class="input" id="loginPassword" type="password" name="password" autocomplete="current-password" placeholder="Your password" required />
+                <button class="pass-toggle" type="button" data-pass-toggle="loginPassword" aria-label="Show password">Show</button>
+              </div>
+            </div>
+            <button class="btn btn-primary btn-block" type="submit" id="loginSubmit">Sign in</button>
+          </form>
+          <div class="auth-note"><strong>Forgot your password?</strong> Message our support desk on <a href="https://wa.me/{{whatsapp}}?text={{whatsapp_text}}" target="_blank" rel="noopener" style="color:var(--brand)">WhatsApp</a> and we'll help you regain access.</div>
+        </div>
+        <p class="auth-foot">New to AZIDAN EXCHANGE? <a href="/register">Create an account</a></p>
+      </div>
+    </div>
+  </main>
+  <!-- @include:whatsapp -->
+  <script type="module" src="/assets/js/nav.js"></script>
+  <script type="module" src="/assets/js/auth.js"></script>
+</body>
+</html>

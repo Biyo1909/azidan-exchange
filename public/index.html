@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AZIDAN EXCHANGE — Sell crypto &amp; gift cards for instant Naira</title>
+  <meta name="description" content="AZIDAN EXCHANGE buys your USDT, Bitcoin, Apple cards, Amazon cards and more at competitive Naira rates. See today's rates, start a trade and get paid to your bank, OPay, PalmPay or Kuda." />
+  <meta name="theme-color" content="#070b12" />
+  <meta property="og:title" content="AZIDAN EXCHANGE — Crypto & gift card trading for Nigeria" />
+  <meta property="og:description" content="Live rates for crypto and gift cards. Sell in minutes and get paid in Naira." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+</head>
+<body>
+  <!-- @include:header -->
+
+  <main id="main">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow"><span class="dot"></span> Nigeria's crypto &amp; gift card desk</span>
+          <h1 class="display">Turn crypto and gift cards into <span class="gradient-text">instant Naira</span>.</h1>
+          <p class="hero-sub">AZIDAN EXCHANGE buys your USDT, Bitcoin, Apple cards, Amazon cards and more at rates you can see before you trade. Get paid to your bank, OPay, PalmPay or Kuda — usually within minutes.</p>
+          <div class="hero-cta">
+            <a class="btn btn-primary btn-lg" href="/sell">
+              Start a trade
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a class="btn btn-ghost btn-lg" href="#today-rates">See today's rates</a>
+          </div>
+          <ul class="hero-trust">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Rates published daily</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Payouts in 5–15 minutes</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Card codes encrypted</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Real support on WhatsApp</li>
+          </ul>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-glow" aria-hidden="true"></div>
+          <div class="rate-panel">
+            <div class="panel-top">
+              <div class="panel-title"><span class="live-dot"></span> Today's live rates</div>
+              <div class="segmented" role="tablist" aria-label="Rate type">
+                <button class="seg-btn active" type="button" data-rate-tab="crypto" role="tab" aria-selected="true">Crypto</button>
+                <button class="seg-btn" type="button" data-rate-tab="giftcard" role="tab" aria-selected="false">Gift cards</button>
+              </div>
+            </div>
+            <div id="heroFeatured"></div>
+            <div id="heroRows">
+              <div class="sk-row skeleton"></div>
+              <div class="sk-row skeleton"></div>
+              <div class="sk-row skeleton"></div>
+            </div>
+            <div class="panel-foot">
+              <span class="updated">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                Updated <span id="heroUpdated">today</span>
+              </span>
+              <a href="/rates">All rates
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="floating-chip two">
+            <span class="fc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <div><strong>Rate locked</strong><span>on every confirmed trade</span></div>
+          </div>
+          <div class="floating-chip one">
+            <span class="fc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/></svg></span>
+            <div><strong>Fast payout</strong><span>bank &amp; wallet transfers</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats-band" aria-label="Platform highlights">
+      <div class="container stats-grid">
+        <div class="stat"><strong id="statAssets">20+</strong><span>Assets traded</span></div>
+        <div class="stat"><strong>Daily</strong><span>Rate updates</span></div>
+        <div class="stat"><strong id="statTrades">5–15 min</strong><span id="statTradesLabel">Average payout</span></div>
+        <div class="stat"><strong class="accent" id="statVolume">8am–10pm</strong><span id="statVolumeLabel">WhatsApp support</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="today-rates">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow"><span class="dot"></span> Live rates</span>
+          <h2 class="h2">Today's buying rates</h2>
+          <p>These are the rates AZIDAN EXCHANGE pays you right now. Rates are reviewed daily and locked in once your trade is confirmed.</p>
+        </div>
+
+        <div class="card">
+          <div class="rates-toolbar">
+            <div class="segmented" role="tablist" aria-label="Rate type">
+              <button class="seg-btn active" type="button" data-rate-tab="crypto" role="tab" aria-selected="true">Crypto</button>
+              <button class="seg-btn" type="button" data-rate-tab="giftcard" role="tab" aria-selected="false">Gift cards</button>
+            </div>
+            <a class="btn btn-ghost btn-sm" href="/rates">View all rates</a>
+          </div>
+          <div class="rate-list-block cols-2" id="homeRates">
+            <div class="sk-row skeleton"></div>
+            <div class="sk-row skeleton"></div>
+            <div class="sk-row skeleton"></div>
+            <div class="sk-row skeleton"></div>
+          </div>
+        </div>
+
+        <div class="section-actions">
+          <a class="btn btn-primary" href="/rates">Compare every rate
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="calculator" style="padding-top:20px">
+      <div class="container calc-wrap">
+        <div class="calc-copy">
+          <span class="eyebrow"><span class="dot"></span> Rate calculator</span>
+          <h2 class="h2">Know your payout before you send anything.</h2>
+          <p>Enter an amount and see exactly what lands in your account. No hidden charges, no surprise deductions — the figure you see is the figure we pay.</p>
+          <ul class="calc-points">
+            <li>
+              <span class="cp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
+              <div><strong>Volume rates built in</strong><span>Larger trade amounts automatically unlock better rates.</span></div>
+            </li>
+            <li>
+              <span class="cp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.4 8.4 8 9 4.6-.6 8-4 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></span>
+              <div><strong>No hidden charges</strong><span>The payout shown includes everything. We don't deduct "processing fees".</span></div>
+            </li>
+            <li>
+              <span class="cp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v8Z"/></svg></span>
+              <div><strong>Questions before you trade?</strong><span>Message us on WhatsApp and a real person will walk you through it.</span></div>
+            </li>
+          </ul>
+        </div>
+        <!-- @include:calculator -->
+      </div>
+    </section>
+
+    <section class="section" id="how-it-works" style="padding-top:24px">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow"><span class="dot"></span> Simple process</span>
+          <h2 class="h2">From asset to Naira in four steps</h2>
+          <p>No complicated order books. Tell us what you're selling, we verify it, and you get paid.</p>
+        </div>
+        <div class="steps">
+          <article class="step-card">
+            <div class="step-num">01</div>
+            <h3>Pick your asset</h3>
+            <p>Choose crypto or a gift card from today's rate list, and check the minimum and maximum limits.</p>
+          </article>
+          <article class="step-card">
+            <div class="step-num">02</div>
+            <h3>Add trade details</h3>
+            <p>Enter the amount, your payout account, then the card details or the transaction hash of your transfer.</p>
+          </article>
+          <article class="step-card">
+            <div class="step-num">03</div>
+            <h3>We verify quickly</h3>
+            <p>Our team checks your submission and confirms the locked rate. You can follow every status change.</p>
+          </article>
+          <article class="step-card">
+            <div class="step-num">04</div>
+            <h3>Get paid</h3>
+            <p>Naira is sent to your bank, OPay, PalmPay, Kuda or Moniepoint account, with proof attached to your trade.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="why-us" style="padding-top:24px">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow"><span class="dot"></span> Why traders choose us</span>
+          <h2 class="h2">Built for trust, speed and clear pricing</h2>
+        </div>
+        <div class="features">
+          <article class="feature">
+            <div class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></div>
+            <h3>Rates you see first</h3>
+            <p>Every crypto and gift card rate is published before you trade. No negotiated surprises or last-minute cuts.</p>
+          </article>
+          <article class="feature">
+            <div class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/></svg></div>
+            <h3>Fast Naira payouts</h3>
+            <p>Confirmed trades are paid straight to your bank or wallet. Most payouts land in 5–15 minutes.</p>
+          </article>
+          <article class="feature">
+            <div class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
+            <h3>Card details kept private</h3>
+            <p>Gift card codes are encrypted at rest, and only the reviewer handling your trade can view them.</p>
+          </article>
+          <article class="feature">
+            <div class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 8v4l3 2"/><circle cx="12" cy="12" r="9"/></svg></div>
+            <h3>Track every trade</h3>
+            <p>Each trade gets a reference and a timeline: pending, confirmed, paid. Log in any time to check.</p>
+          </article>
+          <article class="feature">
+            <div class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 20h18M6 20V10m6 10V4m6 16v-7"/></svg></div>
+            <h3>Volume rates</h3>
+            <p>Bigger trades unlock better per-unit rates automatically, with no extra paperwork.</p>
+          </article>
+          <article class="feature">
+            <div class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v8Z"/></svg></div>
+            <h3>Humans on WhatsApp</h3>
+            <p>Stuck or unsure? Message a real person on WhatsApp — no bots and no endless ticket queues.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:24px">
+      <div class="container payouts">
+        <div class="card">
+          <div class="card-head" style="padding:20px 20px 0">
+            <div>
+              <div class="card-title">Recent payouts</div>
+              <div class="card-sub">Verified transfers from our trade desk</div>
+            </div>
+            <span class="chip chip-brand">Live</span>
+          </div>
+          <div class="payout-list" id="payoutsList">
+            <div class="payout-item"><div class="skeleton" style="width:100%;height:46px"></div></div>
+          </div>
+        </div>
+        <div class="card payout-note">
+          <div class="quote">"Every trade is reviewed by a real person, and every payout leaves a paper trail."</div>
+          <div class="who">
+            <span class="avatar">AZ</span>
+            <div>
+              <div class="strong" style="font-size:.85rem">The AZIDAN trade desk</div>
+              <div class="tiny muted">Lagos · supporting traders nationwide</div>
+            </div>
+          </div>
+          <hr class="divider" />
+          <p class="small muted" style="margin-bottom:14px">We never ask for your bank PIN, card PIN or OTP. If anyone claiming to be from AZIDAN EXCHANGE asks for those, stop and report it on WhatsApp.</p>
+          <a class="btn btn-ghost" href="https://wa.me/{{whatsapp}}?text={{whatsapp_text}}" target="_blank" rel="noopener">Verify a trade with support</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq" style="padding-top:24px">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow"><span class="dot"></span> FAQ</span>
+          <h2 class="h2">Answers before you trade</h2>
+        </div>
+        <div class="faq">
+          <details class="faq-item">
+            <summary>How long do payouts take?</summary>
+            <div class="faq-body">Most confirmed trades are paid within 5–15 minutes during support hours. Large or unusual trades may take longer while we complete verification. You'll see the status change on your trade page.</div>
+          </details>
+          <details class="faq-item">
+            <summary>Which gift cards and currencies do you buy?</summary>
+            <div class="faq-body">We buy Apple, Amazon, Steam, Google Play, iTunes, Vanilla, Razer Gold, Sephora, Nordstrom, Walmart, American Express and more — in USD, GBP, EUR, CAD and AUD. The live rates page shows exactly what's available today.</div>
+          </details>
+          <details class="faq-item">
+            <summary>Do I need an account to see rates?</summary>
+            <div class="faq-body">No. Rates and the calculator are public. You only need an account to submit a trade, so we can track it and pay you securely.</div>
+          </details>
+          <details class="faq-item">
+            <summary>How are your rates decided?</summary>
+            <div class="faq-body">Our desk sets rates from what we can settle each asset for on a given day, then publishes a single buying rate for everyone. Rates are reviewed daily — check the "updated" time on the rate panel.</div>
+          </details>
+          <details class="faq-item">
+            <summary>Is it safe to submit my gift card code?</summary>
+            <div class="faq-body">Your code is encrypted before it is stored and is only decrypted by the reviewer handling your trade. We also log every time a code is viewed. Never send card details to anyone outside this platform or our verified WhatsApp number.</div>
+          </details>
+          <details class="faq-item">
+            <summary>Which payout methods do you support?</summary>
+            <div class="faq-body">Bank transfer, OPay, PalmPay, Kuda and Moniepoint. Add your account details when you start the trade — you can save them for next time.</div>
+          </details>
+        </div>
+        <div class="section-actions">
+          <a class="btn btn-ghost" href="/faq">Read all FAQs</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-tight">
+      <div class="container">
+        <div class="cta-band">
+          <div>
+            <h2>Ready to cash out your crypto or gift card?</h2>
+            <p>Check today's rate, submit your trade, and get paid to your account. Our desk is online.</p>
+          </div>
+          <div class="cta-actions">
+            <a class="btn btn-primary btn-lg" href="/sell">Start a trade</a>
+            <a class="btn btn-ghost btn-lg" href="https://wa.me/{{whatsapp}}?text={{whatsapp_text}}" target="_blank" rel="noopener">Chat on WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- @include:footer -->
+  <!-- @include:whatsapp -->
+
+  <script type="module" src="/assets/js/nav.js"></script>
+  <script type="module" src="/assets/js/calculator.js"></script>
+  <script type="module" src="/assets/js/home.js"></script>
+</body>
+</html>

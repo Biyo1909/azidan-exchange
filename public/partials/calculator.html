@@ -1,0 +1,40 @@
+<div class="card calc-card" data-calculator>
+  <div class="card-head" style="margin-bottom:14px">
+    <div>
+      <div class="card-title">Rate calculator</div>
+      <div class="card-sub">See exactly what you'll receive</div>
+    </div>
+    <span class="chip chip-brand">Live</span>
+  </div>
+
+  <div class="field">
+    <label class="label" for="calcAsset">You are selling</label>
+    <select class="select" id="calcAsset" aria-label="Asset to sell"></select>
+  </div>
+
+  <div class="field">
+    <label class="label" for="calcAmount">Amount</label>
+    <div class="input-suffix">
+      <input class="input" id="calcAmount" type="text" inputmode="decimal" placeholder="Enter amount" autocomplete="off" />
+      <span class="suffix" data-calc-unit>USD</span>
+    </div>
+    <div class="quick-chips" data-calc-chips></div>
+    <p class="hint" data-calc-range></p>
+  </div>
+
+  <div class="calc-out">
+    <div class="label">You receive</div>
+    <div class="amount" data-calc-out>₦0</div>
+    <div class="breakdown">
+      <span data-calc-rate>Rate —</span>
+      <span data-calc-tier hidden></span>
+    </div>
+    <div class="tier-note" data-calc-hint hidden></div>
+  </div>
+
+  <a class="btn btn-primary btn-block" data-calc-cta href="/sell">
+    Sell now
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+  </a>
+  <p class="hint" style="margin-top:10px;text-align:center">Your rate is locked once our team confirms your trade.</p>
+</div>
