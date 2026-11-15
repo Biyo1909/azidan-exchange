@@ -1,3 +1,4 @@
+import './transition.js';
 import { api, getMe } from './api.js';
 import { $, $$, escapeHtml, fmtRate, initials } from './ui.js';
 
@@ -66,6 +67,7 @@ function initNav() {
   };
   burger?.addEventListener('click', openMenu);
   close?.addEventListener('click', closeMenu);
+  $('#tabMore')?.addEventListener('click', openMenu);
   menu?.addEventListener('click', (event) => { if (event.target === menu) closeMenu(); });
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && menu?.classList.contains('open')) closeMenu();
