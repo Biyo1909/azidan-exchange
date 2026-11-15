@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: azidan-exchange
+    runtime: node
+    plan: 0.5c-512mb
+    region: frankfurt
+    branch: main
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /api/stats
+    autoDeployTrigger: commit
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: COOKIE_SECURE
+        value: "true"
+      - key: DATA_DIR
+        value: /var/data
+      - key: ENCRYPTION_KEY
+        generateValue: true
+      - key: ADMIN_NAME
+        value: AZIDAN Admin
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+    disk:
+      name: azidan-data
+      mountPath: /var/data
+      sizeGB: 1

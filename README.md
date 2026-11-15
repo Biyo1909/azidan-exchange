@@ -186,7 +186,24 @@ Change the admin password from `/dashboard` → *Password*, or by updating the u
 
 ## 10. Deployment
 
-1. Provision a host with Node 22.9+ and a persistent disk for `data/`.
+### Deploy to Render
+
+The repo ships a [`render.yaml`](render.yaml) Blueprint: a Node web service on the Starter plan in Frankfurt, a 1 GB disk mounted at `/var/data` (SQLite + uploads), a generated `ENCRYPTION_KEY`, secure cookies and a `/api/stats` health check.
+
+1. Sign in at [dashboard.render.com](https://dashboard.render.com) with the GitHub account that owns the repo.
+2. Click **New +** → **Blueprint**, connect GitHub if prompted, and select **Biyo1909/azidan-exchange** on `main`.
+3. Render reads `render.yaml` and asks for the two secret values: `ADMIN_EMAIL` (your admin login) and `ADMIN_PASSWORD` (use a strong password, not the default). `ENCRYPTION_KEY` is generated automatically.
+4. Click **Apply**. The first build runs `npm ci`, then `npm start`; the disk is mounted at `/var/data`.
+5. Wait for the service to show **Live**, then open `https://<service-name>.onrender.com`. If the name `azidan-exchange` is taken, edit it in the Blueprint — the URL follows the name.
+6. Sign in at `/login` with the admin email and password from step 3, then change the password from **Dashboard → Password**.
+
+Cost: Starter compute (0.5 CPU / 512 MB) is $7/month plus the 1 GB disk. Free instances cannot attach a disk, so their database is wiped on every restart.
+
+**Do not change or remove `ENCRYPTION_KEY` after the first trade** — stored gift card codes become unreadable. To back up, download `/var/data/azidan.db` (with its `-wal`/`-shm` files), `/var/data/uploads/` and keep the key safe.
+
+### Any other host
+
+1. Provision a host with Node 22.13+ and a persistent disk for `data/`.
 2. Set `NODE_ENV=production`, `APP_URL=https://your-domain`, `COOKIE_SECURE=true`, a strong `ADMIN_PASSWORD`, and a fresh `ENCRYPTION_KEY` before the first run.
 3. Run `npm install --omit=dev` and `npm start` under a process manager (systemd, pm2, Docker).
 4. Put a reverse proxy (nginx, Caddy) in front for TLS and gzip. The app already trusts the proxy for `X-Forwarded-*`.
